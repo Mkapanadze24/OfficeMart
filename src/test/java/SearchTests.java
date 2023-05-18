@@ -1,14 +1,14 @@
 import StepObject.SearchPageSteps;
 import Utils.ChromeRunner;
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
-import jdk.jfr.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SearchTests extends ChromeRunner {
     @Test
-    @Step("საძიებო ღილაკზე დაკლიკებით უნდა გამოვიდეს ჩასაწერი ველი - {გამოდის ჩასაწერი ველი}")
+    @Description ("Case_1")
     public void Search_field_visible() {
         SearchPageSteps searchPageSteps = new SearchPageSteps();
         searchPageSteps.SearchInput();
@@ -16,7 +16,7 @@ public class SearchTests extends ChromeRunner {
     }
 
     @Test
-    @Step("საძიებო ველში სწორი მონაცემებით ძებნა მაგ: კალამი ბურთულიანი - {დაბრუნებული მონაცემების სახელებში უნდა იყოს ძებნისას გადაცემული სიტყვა}")
+    @Description ("Case_2")
     public void Search_correct_data() {
         SearchPageSteps searchPageSteps = new SearchPageSteps();
         searchPageSteps.SearchInput();
@@ -25,7 +25,7 @@ public class SearchTests extends ChromeRunner {
     }
 
     @Test
-    @Step("საძიებო ველში არასწორი მონაცემებით ძებნა (მაგ: satesto)- {უნდა გამოიტანოს შედეგი ტექსტით: \"საძიებო სიტყვა 'satesto' ვერაფერი მოიძებნა\"}")
+    @Description ("Case_3")
     public void Search_incorrect_data() {
         SearchPageSteps searchPageSteps = new SearchPageSteps();
         searchPageSteps.SearchInput();

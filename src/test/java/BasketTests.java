@@ -1,13 +1,14 @@
 import StepObject.BasketPageSteps;
 import Utils.ChromeRunner;
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class BasketTests extends ChromeRunner {
     @Test
-    @Step ("კონკრეტული პროდუქტის კალათაში დამატების ღილაკზე დაჭერით- {უნდა გამოიტანოს შემდეგი შეტყობინება: \"პროდუქტი წარმატებით დაემატა კალათაში\"}")
+    @Description ("Case_4")
     public void Basket_add_successfully(){
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -16,7 +17,7 @@ public class BasketTests extends ChromeRunner {
         Assert.assertTrue(basketPageSteps.Addproduct.is(Condition.visible));
     }
     @Test
-    @Step ("პროდუქტის დამატების შემდეგ კალათაში გადასვლისას უნდა ჩანდეს - {დამატებული პროდუქტის დასახელება}")
+    @Description ("Case_5")
     public void Basket_add_product_name(){
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -28,7 +29,7 @@ public class BasketTests extends ChromeRunner {
         Assert.assertTrue(basketPageSteps.NameBasket.is(Condition.visible));
     }
     @Test
-    @Step("პროდუქტის დამატების შემდეგ კალათაში გადასვლისას უნდა ჩანდეს - {დამატებული პროდუქტის ფერი}")
+    @Description ("Case_6")
     public void Basket_add_product_color(){
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -40,7 +41,7 @@ public class BasketTests extends ChromeRunner {
     }
 
     @Test
-    @Step("პროდუქტის დამატების შემდეგ კალათაში გადასვლისას უნდა ჩანდეს - {დამატებული პროდუქტის კოდი}")
+    @Description ("Case_7")
     public void Basket_add_product_code(){
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -52,7 +53,7 @@ public class BasketTests extends ChromeRunner {
     }
 
     @Test
-    @Step("პროდუქტის დამატების შემდეგ კალათაში გადასვლისას უნდა ჩანდეს - {დამატებული პროდუქტის რაოდენობა}")
+    @Description ("Case_8")
     public void Basket_add_product_quantity(){
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -64,7 +65,7 @@ public class BasketTests extends ChromeRunner {
     }
 
     @Test
-    @Step("პროდუქტის დამატების შემდეგ კალათაში გადასვლისას უნდა ჩანდეს- {დამატებული პროდუქტის ფასი}")
+    @Description ("Case_9")
     public void Basket_add_product_price(){
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -76,7 +77,7 @@ public class BasketTests extends ChromeRunner {
     }
 
     @Test
-    @Step("პროდუქტის დამატების შემდეგ კალათაში გადასვლისას უნდა ჩანდეს - {დამატებული პროდუქტის ჯამი ( \"სულ)}")
+    @Description ("Case_10")
     public void Basket_add_product_all() {
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -87,7 +88,7 @@ public class BasketTests extends ChromeRunner {
         Assert.assertTrue(basketPageSteps.AllBasket.is(Condition.visible));
     }
     @Test
-    @Step("თუ გავზრდით კალათაში არსებული პროუქტის რაოდენობას პროპორციულად უნდა გაიზარდოს თითოეული ველის \"სულ\" მნიშვნელობა")
+    @Description("Case_11")
     public void Basket_add_product_total() {
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -99,7 +100,7 @@ public class BasketTests extends ChromeRunner {
 
     }
     @Test
-    @Step("თუ შევამცირებთ კალათაში არსებული პროუქტის რაოდენობას პროპორციულად უნდა შემცირდეს თითოეული ველის \"სულ\" მნიშვნელობა")
+    @Description ("Case_12")
     public void Basket_deduct_product_total() {
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -110,7 +111,7 @@ public class BasketTests extends ChromeRunner {
         Assert.assertTrue(basketPageSteps.TotalPriceBasket.is(Condition.enabled));
     }
     @Test
-    @Step("შესაძლებელი უნდა იყოს კალათაში არსებული კონკრეტული პროდუქტის წაშლა, \"X\" ღილაკზე დაჭერით")
+    @Description ("Case_13")
     public void Basket_delete_X_product() {
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -120,7 +121,7 @@ public class BasketTests extends ChromeRunner {
         Assert.assertTrue(basketPageSteps.DeleteBasket.is(Condition.visible));
     }
     @Test
-    @Step("თუ რამდენიმე პროდუქტი გვაქვს კალათაში დამატებული შესაძლებელი უნდა იყოს მთლიანი კალათის გასუფთავება")
+    @Description("Case_14")
     public void Basket_clear_all_product() {
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -130,7 +131,7 @@ public class BasketTests extends ChromeRunner {
         Assert.assertFalse(basketPageSteps.ClearBasket.is(Condition.visible));
     }
     @Test
-    @Step("თუ რამდენიმე პროდუქტი გვაქვს კალათაში დამატებული შესაძლებელი უნდა იყოს მთლიანი კალათის გასუფთავება- {\"კალათის გასუფთავება\" ღილაკზე დაჭერით გამოდის ტექსტი კალათა ცარიელია}")
+    @Description("Case_15")
     public void Basket_empty() {
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -141,7 +142,7 @@ public class BasketTests extends ChromeRunner {
         Assert.assertFalse(basketPageSteps.EmptyBasket.is(Condition.visible));
     }
     @Test
-    @Step("თუ რამდენიმე პროდუქტი გვაქვს კალათაში დამატებული შესაძლებელი უნდა იყოს მთლიანი კალათის გასუფთავება- {\"კალათის გასუფთავება\" ღილაკზე დაჭერით უნდა გაქრეს ღილაკი \"გაგრძელება\"}")
+    @Description("Case_16")
     public void Basket_clearproduct_continue() {
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
@@ -152,7 +153,7 @@ public class BasketTests extends ChromeRunner {
         Assert.assertTrue(basketPageSteps.ContinueBasket.is(Condition.hidden));
     }
     @Test
-    @Step("თუ რამდენიმე პროდუქტი გვაქვს კალათაში დამატებული შესაძლებელი უნდა იყოს მთლიანი კალათის გასუფთავება-{\"კალათის გასუფთავება\" ღილაკზე დაჭერით უნდა გაქრეს ღილაკი \"კალათის გასუფთავება\"}")
+    @Description("Case_17")
     public void Basket_clearproduct_clearbasket() {
         BasketPageSteps basketPageSteps = new BasketPageSteps();
         basketPageSteps.BasketInput()
